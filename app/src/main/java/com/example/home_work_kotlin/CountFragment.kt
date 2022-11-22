@@ -32,28 +32,23 @@ class CountFragment : Fragment() {
 
         binding.btn.setOnClickListener {
 
-
             if (count <= 10 && binding.btn.text == "+1") {
                 count++
                 binding.tvCount.text = count.toString()
             }
             if (count != 0) {
-                if (count == 11) {
-                    binding.btn.text = "-1"
-                }
+                if (count == 11) binding.btn.text = "-1"
+
                 if (binding.btn.text == "-1") {
                     count--
                     binding.tvCount.text = count.toString()
                 }
             }
-            if (count == 0){
-                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,SecondFragment())
+            if (count == 0) {
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, SecondFragment())
                     .addToBackStack(null).commit()
             }
-
-
         }
-
-
     }
 }
